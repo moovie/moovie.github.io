@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Moovie Demo</title>
+        <meta name="description" content="An advanced HTML5 video player for MooTools.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="https://npmcdn.com/moovie/dist/moovie.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <style>
+            .moovie {
+                position: relative;
+                top: auto;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                transform: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>Moovie Demo</h1>
+                <p>
+                    You are viewing the demo for version:
+                    <a href="https://badge.fury.io/js/moovie">
+                        <img src="https://badge.fury.io/js/moovie.png" alt="npm version" height="18">
+                    </a>
+                </p>
+            </header>
+            <section>
+                <video id="trailers" src="http://colinaarts.com/assets/avatar.ogv" poster="http://colinaarts.com/assets/avatar.png" controls>
+                    <track kind="subtitles" src="assets/avatar-2009.vtt" srclang="en" label="Avatar (2009).vtt">
+                    <track kind="subtitles" src="assets/avatar-2009.srt" srclang="en" label="Avatar (2009).srt">
+                </video>
+
+                <ul>
+                    <li><a href="https://github.com/moovie/moovie" rel="external">Source</a></li>
+                    <li><a href="https://github.com/moovie/moovie/wiki" rel="external">Wiki</a></li>
+                    <li><a href="https://github.com/moovie/moovie/issues" rel="external">Found an Issue?</a></li>
+                    <li><a href="https://github.com/moovie/moovie/blob/master/CONTRIBUTING.md" rel="external">Want to Contribute?</a></li>
+                    <li><a href="https://github.com/moovie/moovie/wiki/Roadmap" rel="external">Roadmap</a></li>
+                </ul>
+            </section>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mootools/1.6.0/mootools-core.min.js"></script>
+        <script>
+            window.MooTools || document.write('<script src="js/vendor/mootools-core-1.6.0.min.js"><\/script>')
+        </script>
+        <script src="https://npmcdn.com/moovie?main=browser"></script> <!-- Always load latest release -->
+        <script>window.Moovie || document.write('<script src="js/vendor/moovie-0.8.0.min.js"><\/script>')</script>
+        <script>
+            var instance = new Moovie('trailers', {
+                debugger: true,
+                controls: { autohide: false },
+                summary: 'A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.',
+                poster: 'http://ia.media-imdb.com/images/M/MV5BMTYwOTEwNjAzMl5BMl5BanBnXkFtZTcwODc5MTUwMw@@._V1_UX182_CR0,0,182,268_AL_.jpg',
+                playlist: [
+                    {
+                        src: 'http://colinaarts.com/assets/alice.ogv',
+                        title: 'Alice in Wonderland',
+                        poster: 'http://ia.media-imdb.com/images/M/MV5BMTMwNjAxMTc0Nl5BMl5BanBnXkFtZTcwODc3ODk5Mg@@._V1_UX182_CR0,0,182,268_AL_.jpg',
+                        summary: 'Nineteen-year-old Alice returns to the magical world from her childhood adventure, where she reunites with her old friends and learns of her true destiny: to end the Red Queen\'s reign of terror.'
+                    },
+                    {
+                        src: 'http://colinaarts.com/assets/shrek.ogv',
+                        title: 'Shrek Forever After',
+                        poster: 'http://ia.media-imdb.com/images/M/MV5BMTY0OTU1NzkxMl5BMl5BanBnXkFtZTcwMzI2NDUzMw@@._V1_UX182_CR0,0,182,268_AL_.jpg',
+                        summary: 'Rumpelstiltskin tricks a mid-life crisis burdened Shrek into allowing himself to be erased from existence and cast in a dark alternate timeline where Rumpel rules supreme.'
+                    }
+                ]
+            });
+        </script>
+    </body>
+</html>
